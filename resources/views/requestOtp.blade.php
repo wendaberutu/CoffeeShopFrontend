@@ -3,33 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Request OTP</title>
-    <!-- Link to external CSS -->
+    
+    <!-- Link Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Link Custom CSS -->
     <link href="{{ asset('css/otp_request.css') }}" rel="stylesheet">
 </head>
-<body>
-
-    <div class="otp-background">
+<body class="otp-background">
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
         <div class="form-container">
-            <img src="{{ asset('images/logo.png') }}" alt="CWD Coffee" width="50" class="logo-circle mb-3">
-            <h2>Request OTP</h2>
-
-            <div id="error-message" class="alert alert-danger" style="display: none;"></div>
-
+            <div class="text-center mb-4">
+                <img src="/images/logo.png" alt="Logo" class="logo-circle">
+                <h3 class="text-white">Request OTP</h3>
+            </div>
             <form id="otpRequestForm">
-                @csrf
                 <div class="mb-3">
-                    <label for="nomor" class="form-label">Nomor Whatshap</label>
-                    <input type="text" class="form-control" id="nomor" name="nomor" placeholder="Masukkan nomor telepon" required>
+                    <label for="nomor" class="form-label text-white">Nomor Telepon</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="nomor" 
+                        name="nomor" 
+                        placeholder="Masukkan nomor telepon" 
+                        required 
+                        pattern="[0-9]{10,13}" 
+                        title="Masukkan nomor telepon yang valid (10-13 digit angka)">
                 </div>
-                <button type="submit" class="btn otp-btn mt-3">Request OTP</button>
+                <button type="submit" class="btn btn-primary w-100">Request OTP</button>
             </form>
-            
-            
         </div>
     </div>
 
+    <!-- Link Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     
+    <!-- Script for OTP Request -->
     <script>
         document.getElementById('otpRequestForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -55,16 +66,16 @@
                     localStorage.setItem('nomor_otp', nomor);
 
                     // Redirect ke halaman verifikasi OTP
-                    window.location.href = '/otp/veryfy';
+                    window.location.href = '/otp/verify';
                 } else {
-                    alert('Gagal mengirim OTP');
+                    alert('Gagal mengirim OTP: ' + (data.message || 'Error tidak diketahui'));
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
+                alert('Terjadi kesalahan dalam mengirim OTP');
             });
         });
     </script>
-
 </body>
 </html>

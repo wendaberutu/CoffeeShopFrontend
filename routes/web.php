@@ -25,5 +25,8 @@ Route::get('/requestOtp', function () {
 })->name('requestOtp');
 
 Route::get('/otp/verify', function () {
-    return view('veryfy');  // Menampilkan halaman verifikasi OTP
+    return view('verivy');  // Menampilkan halaman verifikasi OTP
+});
+Route::get('/formRegister', function () {
+    return view('formRegister'); // Halaman pendaftaran
 });
