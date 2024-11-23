@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+}
+
+.user-info {
+    margin-top: auto;
+}
+
+.main {
+    flex-grow: 1;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef); /* Background gradient */
+    padding: 30px;
+}
+
+.content-card {
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+}

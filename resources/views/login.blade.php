@@ -27,13 +27,13 @@
             </form>
 
             <div class="mt-3">
-                <p class="text-white">Belum punya akun? <a href="{{ route('requestOtp') }}" class="text-warning">Daftar sekarang</a></p>
+                <p class="text-white">Belum punya akun? <a href="{{ route('otp.request') }}" class="text-warning">Daftar sekarang</a></p>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
+    {{-- <script>
         document.getElementById('login-form').addEventListener('submit', function(event) {
             event.preventDefault();
 
@@ -68,7 +68,7 @@
                 document.getElementById('error-message').innerText = 'Something went wrong. Please try again.';
             });
         });
-    </script>
+    </script> --}}
 
 </body>
 </html>

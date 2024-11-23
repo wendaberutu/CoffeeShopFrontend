@@ -15,22 +15,26 @@
             <h2>Request OTP</h2>
 
             <div id="error-message" class="alert alert-danger" style="display: none;"></div>
+<form id="otpRequestForm" action="{{ route('otp.request') }}" method="POST">
+    @csrf
+    <div class="mb-3">
+        <label for="nomor" class="form-label">Nomor WhatsApp</label>
+        <input type="text" class="form-control" id="nomor" name="nomor" placeholder="Masukkan nomor telepon" required>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Request OTP</button>
+    @if(session('error'))
+        <div class="alert alert-danger mt-3">{{ session('error') }}</div>
+    @endif
+</form>
 
-            <form id="otpRequestForm">
-                @csrf
-                <div class="mb-3">
-                    <label for="nomor" class="form-label">Nomor Whatshap</label>
-                    <input type="text" class="form-control" id="nomor" name="nomor" placeholder="Masukkan nomor telepon" required>
-                </div>
-                <button type="submit" class="btn otp-btn mt-3">Request OTP</button>
-            </form>
+
             
             
         </div>
     </div>
 
     
-    <script>
+    {{-- <script>
         document.getElementById('otpRequestForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -64,7 +68,7 @@
                 console.error('Error:', error);
             });
         });
-    </script>
+    </script> --}}
 
 </body>
 </html>

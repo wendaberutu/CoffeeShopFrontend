@@ -16,17 +16,53 @@
                         <h3>Verify OTP</h3>
                     </div>
                     <div class="card-body">
-                        <form id="otpVerifyForm">
-                            <div class="mb-3">
-                                <label for="verifyNomor" class="form-label">Nomor Telepon</label>
-                                <input type="text" class="form-control" id="verifyNomor" name="nomor" placeholder="Masukkan nomor telepon" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="otp" class="form-label">Kode OTP</label>
-                                <input type="text" class="form-control" id="otp" name="otp" placeholder="Masukkan OTP" required>
-                            </div>
-                            <button type="submit" class="btn btn-success w-100">Verify OTP</button>
-                        </form>
+<div class="alert alert-danger mt-3" id="errorMessage" style="display: none;"></div>
+
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+<form id="otpVerifyForm" action="{{ route('otp.verify') }}" method="POST">
+    @csrf
+
+    <div class="mb-3">
+        <label for="verifyNomor" class="form-label">Nomor Telepon</label>
+       
+     
+        <input 
+            type="text" 
+            class="form-control" 
+            id="verifyNomor" 
+            name="nomor" 
+            placeholder="Masukkan nomor telepon" 
+          value="{{ session('nomor') ?? $nomor ?? '' }}" 
+             
+            required
+        >
+       
+    </div>
+    <div class="mb-3">
+        <label for="otp" class="form-label">Kode OTP</label>
+        <input 
+            type="text" 
+            class="form-control" 
+            id="otp" 
+            name="otp" 
+            placeholder="Masukkan OTP" 
+            required
+        >
+    </div>
+    <button type="submit" class="btn btn-success w-100">Verify OTP</button>
+</form>
+
                     </div>
                 </div>
             </div>
@@ -36,40 +72,6 @@
     <!-- Link Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Script for OTP Verify -->
-    <script>
-         // Ambil nomor telepon dari localStorage dan tampilkan di form
-        document.getElementById('verifyNomor').value = localStorage.getItem('nomor_otp');
-
-        document.getElementById('otpVerifyForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const nomor = document.getElementById('verifyNomor').value;
-            const otp = document.getElementById('otp').value;
-
-            // Melakukan verifikasi OTP ke backend
-            fetch('http://127.0.0.1:8000/api/verify-otp', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    nomor: nomor,
-                    otp: otp
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                
-                if (data.message === 'OTP verified successfully') {
-                    alert('OTP berhasil diverifikasi');
-                } else {
-                    alert('Verifikasi OTP gagal');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        });
-    </script>
+   
 </body>
 </html>
