@@ -25,6 +25,7 @@ Route::get('/otp/request', function () {
     return view('requestOtp'); // Halaman registrasi
 })->name('otp.request');
 
+
 Route::post('/otp/request', [OtpController::class, 'requestOTP'])->name('otp.request');
 Route::get( '/otp/verify', [OtpController::class, 'otpVerify'])->name('otp.verify');
 Route::post('/otp/verify', [OtpController::class, 'postVerify'])->name('post.verify');
@@ -58,3 +59,4 @@ Route::prefix('user')->group(function () {
         return view('user.menu');
     })->name('user.menu');
 });
+ 
