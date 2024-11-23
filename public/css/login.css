@@ -1,0 +1,53 @@
+/* login.css */
+.login-background {
+    background-image: url('/images/coffee-background2.jpg'); /* Menggunakan path relatif dari folder public */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.form-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-control {
+    background: transparent;
+    border: 1px solid #ffffff;
+    color: white;
+}
+
+.form-control::placeholder {
+    color: #cccccc;
+}
+
+.login-btn {
+    background-color: #a0522d;
+    color: white;
+    border: none;
+    width: 100%;
+}
+
+.login-btn:hover {
+    background-color: #8b4513;
+}
+
+.logo-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.alert-danger {
+    margin-top: 10px;
+}

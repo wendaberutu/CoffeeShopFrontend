@@ -1,0 +1,61 @@
+/* Background styling for OTP page */
+.otp-background {
+    background-image: url('/images/coffee-background2.jpg'); /* Make sure the path is correct */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Form container with dark transparent background */
+.form-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Form input fields styling */
+.form-control {
+    background: transparent;
+    border: 1px solid #ffffff;
+    color: white;
+}
+
+/* Placeholder text color */
+.form-control::placeholder {
+    color: #cccccc;
+}
+
+/* Button styling for OTP request */
+.otp-btn {
+    background-color: #a0522d;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.otp-btn:hover {
+    background-color: #8b4513;
+}
+
+/* Circular logo styling */
+.logo-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+/* Error message styling */
+.alert-danger {
+    margin-top: 10px;
+}
