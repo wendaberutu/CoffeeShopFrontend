@@ -22,12 +22,17 @@ Route::get('/login', function () {
 })->name('login');  
 
 Route::get('/otp/request', function () {
-    return view('requestOtp'); // Halaman registrasi
+    return view('requestOtp');  
 })->name('otp.request');
+
+Route::get('/register', function () {
+    return view('formRegister'); // Halaman register
+})->name('register');
 
 
 Route::post('/otp/request', [OtpController::class, 'requestOTP'])->name('otp.request');
 Route::get( '/otp/verify', [OtpController::class, 'otpVerify'])->name('otp.verify');
+Route::get('/register', [OtpController::class, 'getRegister'])->name('register');
 Route::post('/otp/verify', [OtpController::class, 'postVerify'])->name('post.verify');
 
 

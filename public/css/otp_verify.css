@@ -1,6 +1,6 @@
-/* Background Styling */
+/* Background styling */
 .login-background {
-    background-image: url("/images/coffee-background2.jpg"); /* Menggunakan path relatif dari folder public */
+    background-image: url("/images/coffee-background2.jpg"); /* Path gambar */
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -10,63 +10,37 @@
     color: white;
 }
 
+/* Form container styling */
 .form-container {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 40px;
     border-radius: 8px;
     width: 100%;
     max-width: 400px;
-    text-align: center;
 }
 
-.logo-circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
+/* Form input fields styling */
 .form-control {
     background: transparent;
     border: 1px solid #ffffff;
     color: white;
-    padding: 12px;
 }
 
+/* Placeholder text color */
 .form-control::placeholder {
     color: #cccccc;
 }
 
+/* Button styling */
 .login-btn {
     background-color: #a0522d;
     color: white;
     border: none;
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     font-size: 16px;
-    cursor: pointer;
 }
 
 .login-btn:hover {
     background-color: #8b4513;
-}
-
-.alert {
-    display: none;
-}
-
-.text-warning {
-    color: #f1c40f;
-}
-
-.text-white {
-    color: white;
-}
-
-/* Responsive adjustments */
-@media (max-width: 576px) {
-    .form-container {
-        padding: 20px;
-        width: 90%;
-    }
 }

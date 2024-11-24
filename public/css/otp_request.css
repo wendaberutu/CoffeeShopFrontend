@@ -1,6 +1,6 @@
 /* Background styling for OTP page */
 .otp-background {
-    background-image: url('/images/coffee-background2.jpg'); /* Make sure the path is correct */
+    background-image: url("/images/coffee-background2.jpg"); /* Make sure the path is correct */
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -58,4 +58,18 @@
 /* Error message styling */
 .alert-danger {
     margin-top: 10px;
+}
+
+/* Button styling */
+.request-btn {
+    background-color: #a0522d;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.request-btn:hover {
+    background-color: #8b4513;
 }

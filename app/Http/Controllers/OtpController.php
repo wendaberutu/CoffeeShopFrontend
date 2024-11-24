@@ -48,6 +48,8 @@ class OtpController extends Controller
         // Tampilkan halaman verifikasi dengan nomor telepon
         return view('veryfy', compact('nomor')); // Pastikan view ini ada
     }
+
+
  
     public function postVerify(Request $request)
     {
@@ -65,7 +67,9 @@ class OtpController extends Controller
 
         if ($response->successful() && $response->json('message') === 'OTP verified successfully') {
             // Jika verifikasi berhasil, arahkan ke halaman login
-            return redirect()->route('login')->with('success', 'Verifikasi berhasil! Silakan login.');
+            $nomor = $request->nomor;
+            session(['nomor' => $nomor]); // bawa ke halaman register
+            return redirect()->route('register')->with('success', 'Verifikasi berhasil! Silakan lanjut register.');
         } else {
             // Jika verifikasi gagal, tetap di halaman ini dan tampilkan pesan error
             return back()->with('error', 'Kode OTP salah atau tidak valid. Silakan coba lagi.');
@@ -73,39 +77,22 @@ class OtpController extends Controller
     }
 
 
-
-
-    public function otpVerify1()
+    public function getRegister()
     {
-
+        // Ambil nomor telepon dari sesi
         $nomor = session('nomor', null);
-        return view('veryfy', compact('nomor')); // Pastikan view ini ada
+        // dd($nomor);
+
+        // Tampilkan halaman register dengan nomor telepon
+        return view('formRegister', compact('nomor')); // Pastikan view ini ada
     }
 
-    public function requestOTP1(Request $request)
-    {
-        // Validasi nomor telepon
-        $validated = $request->validate([
-            'nomor' => 'required|regex:/^\d{10,15}$/', // Validasi nomor WhatsApp
-        ]);
+    
 
-        // Mengirimkan request ke backend API
-        $response = Http::post('http://127.0.0.1:8000/api/otp/request', [
-            'nomor' => $request->nomor,
-        ]);
 
-        if ($response->successful()) {
-            $nomor = $request->nomor;
-            session(['nomor' => $nomor]);
-           
 
-            // Tampilkan halaman verifikasi jika request OTP berhasil
-            return redirect()->route('otp.verify'); // Ganti dengan nama rute untuk verifikasi
-        } else {
-            // Tampilkan error jika request gagal
-            return back()->with('error', 'Gagal mengirim OTP. Silakan coba lagi.');
-        }
-    }
+
+    
 }
 
  

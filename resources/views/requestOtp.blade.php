@@ -25,7 +25,7 @@
         <label for="nomor" class="form-label">Nomor WhatsApp</label>
         <input type="text" class="form-control" id="nomor" name="nomor" placeholder="Masukkan nomor telepon" required>
     </div>
-    <button type="submit" class="btn btn-primary mt-3">Request OTP</button>
+    <button type="submit" class="btn request-btn">Request OTP</button>
     @if(session('error'))
         <div class="alert alert-danger mt-3">{{ session('error') }}</div>
     @endif
