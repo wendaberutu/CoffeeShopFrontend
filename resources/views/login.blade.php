@@ -8,7 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Link Custom CSS (if any) -->
     <link href="{{ asset('css/login.css') }}" rel="stylesheet">
-
 </head>
 <body>
 
@@ -18,11 +17,10 @@
             <h2 class="mb-4">Login</h2>
 
             <!-- Error Message -->
-            <div id="error-message" class="alert alert-danger"></div>
+            <div id="error-message" class="alert alert-danger" style="display: none;"></div>
 
             <!-- Login Form -->
             <form id="login-form">
-                @csrf
                 <div class="mb-3">
                     <input type="tel" class="form-control" id="phone_number" name="phone_number" placeholder="Nomor WhatsApp" required>
                 </div>
@@ -40,41 +38,8 @@
 
     <!-- Link Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Optional Script for Handling Form -->
-    <script>
-        document.getElementById('login-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const phone_number = document.getElementById('phone_number').value;
-            const password = document.getElementById('password').value;
-
-            fetch('/api/auth/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
-                body: JSON.stringify({
-                    phone_number: phone_number,
-                    password: password
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    window.location.href = '/home';
-                } else {
-                    document.getElementById('error-message').style.display = 'block';
-                    document.getElementById('error-message').innerText = data.message || 'Invalid credentials, please try again.';
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                document.getElementById('error-message').style.display = 'block';
-                document.getElementById('error-message').innerText = 'Something went wrong. Please try again.';
-            });
-        });
-    </script>
-
+    
+    <!-- JavaScript for handling login -->
+    <script src="{{ asset('js/login.js') }}"></script>
 </body>
 </html>

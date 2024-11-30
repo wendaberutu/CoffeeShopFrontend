@@ -55,6 +55,10 @@ Route::prefix('admin')->group(function () {
     Route::get('edit-menu', function () {
         return view('admin.edit');
     })->name('admin.edit.menu');
+
+    Route::get('cek', function () {
+        return view('admin.cek');  // Admin page
+    })->name('admin.cek');
 });
 
 
@@ -63,5 +67,9 @@ Route::prefix('user')->group(function () {
     Route::get('menu', function () {
         return view('user.menu');
     })->name('user.menu');
+
+    Route::get('dashboard', function () {
+        return view('user.dashboard');
+    })->name('user.dashboard');
 });
  
