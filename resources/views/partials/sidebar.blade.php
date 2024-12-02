@@ -22,6 +22,14 @@
             <!-- User Info -->
             <div class="user-info d-flex justify-content-between align-items-center">
                 <span>Kaleb</span>
-                <a class="btn btn-danger btn-sm" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                {{-- <a class="btn btn-danger btn-sm" href="{{'#' }}"><i class="fas fa-sign-out-alt"></i> Logout</a> --}}
+ 
+                 <!-- Tombol Logout -->
+        <button class="btn btn-danger btn-sm" id="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+                 
             </div>
         </div>
+
+ 

@@ -47,7 +47,20 @@
             });
         });
     </script>
+<script>
+    // Fungsi untuk logout
+const logout = () => {
+    // Hapus token dari localStorage
+    localStorage.removeItem("access_token");
 
+    // Redirect ke halaman login setelah logout berhasil
+    window.location.href = "/login"; // Ganti dengan URL login Anda
+};
+
+// Tambahkan event listener untuk tombol logout
+document.getElementById("logout-btn").addEventListener("click", logout);
+
+</script>
     @yield('scripttambahan')
 </body>
 </html>

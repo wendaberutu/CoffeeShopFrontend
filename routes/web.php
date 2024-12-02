@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OtpController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,16 @@ Route::get('/', function () {
 })->name('home');
 Route::get('/login', function () {
     return view('login');
-})->name('login');  
+})->name('login');
+
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+Route::get('admin/products', [ProductController::class, 'index']);
+
+Route::get('/admin/products/tambah', function () {
+    return view('admin.tambah');
+})->name('tambah.product');
 
 Route::get('/otp/request', function () {
     return view('requestOtp');  

@@ -67,3 +67,26 @@
             <button type="submit" class="btn btn-primary mt-3">Update Menu</button>
         </form>
     </div>
+
+
+
+
+    <script>
+    function editProduct(productId) {
+        const url = `http://127.0.0.1:8000/api/public/products/${productId}`;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    // Arahkan ke halaman edit dengan data produk
+                    window.location.href = `/admin/edit?product_id=${data.id}`;
+                } else {
+                    alert("Produk tidak ditemukan.");
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching product data:", error);
+                alert("Terjadi kesalahan saat mengambil data produk.");
+            });
+    }
+</script>
