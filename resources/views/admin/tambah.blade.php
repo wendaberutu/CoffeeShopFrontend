@@ -13,10 +13,13 @@
             @enderror
         </div>
 
-        <!-- Input Kategori Barang -->
+        <!-- Input Kategori Barang (Dropdown) -->
         <div class="form-group">
             <label for="kategori" class="form-label">Kategori</label>
-            <input name="kategori" type="text" class="form-control @error('kategori') is-invalid @enderror" id="kategori" value="{{ old('kategori') }}" />
+            <select name="kategori" class="form-control @error('kategori') is-invalid @enderror" id="kategori">
+                <option value="minuman" {{ old('kategori') == 'minuman' ? 'selected' : '' }}>Minuman</option>
+                <option value="makanan" {{ old('kategori') == 'makanan' ? 'selected' : '' }}>Makanan</option>
+            </select>
             @error('kategori')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror

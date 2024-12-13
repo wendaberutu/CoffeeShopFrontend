@@ -20,6 +20,7 @@
             <th>Produk</th>
             <th>Kategori</th>
             <th>Harga</th>
+            <th>Diskon</th>
             <th>Gambar</th>
             <th>Aksi</th>
         </tr>
@@ -32,6 +33,7 @@
             <td>{{ $product['nama_produk'] }}</td>
             <td>{{ $product['kategori'] }}</td>
             <td>Rp {{ number_format($product['harga']) }}</td>
+            <td>{{ $product['diskon'] . "%" }}</td>
             <td>
     @if($product['gambar'])
         <img src={{ env("SERVER_BACKEND") . "/storage/" . $product['gambar'] }} alt="Gambar Produk" style="width: 100px; height: auto;">
@@ -53,7 +55,7 @@
         </tr>
         @endforeach
     </tbody>
-</table>
+</table> 
 @endsection
 
 
@@ -163,9 +165,6 @@ console.log(user);
     });
 </script>
 
-
-   document.addEventListener("DOMContentLoaded", function () {
-    const tambahButton = document.querySelectorAll(".tambah-btn");
-
+ 
 
 @endsection
