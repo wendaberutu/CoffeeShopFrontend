@@ -72,47 +72,41 @@
 
     <!-- JavaScript to Handle Form Submission -->
     <script>
-        // Fungsi untuk submit form
-document.getElementById("userForm").addEventListener("submit", async (event) => {
-    event.preventDefault(); // Mencegah form melakukan submit default
-    
-    // Ambil form dan data form
-    const form = document.getElementById("userForm");
-    const formData = new FormData(form);
-    
-    // Ambil token (misalnya token autentikasi jika dibutuhkan)
-    const token = localStorage.getItem("access_token");
-    const serverBackend = "http://127.0.0.1:8000";  // Ganti dengan URL backend Anda
-    
-    try {
-        // Kirim permintaan POST dengan form data
-        const response = await fetch(`${serverBackend}/register`, {
-            method: "POST",
-            headers: {
-                "Authorization": `Bearer ${token}`, // Jika perlu mengirimkan token
-                // Jika tidak perlu, header ini bisa dihapus
-            },
-            body: formData, // Mengirim form data
+        document.getElementById('userForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            // Prepare the form data
+            const formData = new FormData(this);
+
+            // Convert form data to an object
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            console.log("Data : ", JSON.stringify(data));
+            try {
+                const response = await fetch('http://127.0.0.1:8000/api/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert('Data berhasil disimpan!');
+                    // Redirect to login page
+                    window.location.href = '/login';
+                } else {
+                    alert('Terjadi kesalahan: ' + result.message);
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
         });
-
-        if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.message || "Terjadi kesalahan saat mengirim data.");
-        }
-
-        const result = await response.json();
-        alert("Data berhasil disimpan!");
-        console.log(result);
-
-        // Jika registrasi berhasil, Anda bisa mengarahkan ke halaman lain
-        window.location.href = "/login"; // Ganti dengan URL tujuan Anda setelah sukses
-
-    } catch (error) {
-        console.error("Error:", error.message);
-        alert("Gagal mengirim data: " + error.message);
-    }
-});
-
     </script>
 </body>
 </html>
