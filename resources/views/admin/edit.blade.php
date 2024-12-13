@@ -19,10 +19,13 @@
             
         </div>
 
+        <!-- Input Kategori Barang (Dropdown) -->
         <div class="form-group mt-3">
             <label for="kategori">Kategori</label>
-            <input type="text" name="kategori" class="form-control" id="kategori">
-             
+            <select name="kategori" class="form-control" id="kategori">
+                <option value="minuman" id="kategori-minuman">Minuman</option>
+                <option value="makanan" id="kategori-makanan">Makanan</option>
+            </select>
         </div>
 
         <div class="form-group mt-3">
@@ -44,11 +47,11 @@
         </div>
 
         <div class="form-group mt-3">
-            <label for="foto_barang">Foto Barang</label>
-               <div class="d-flex justify-content-center align-items-center">
-    <img src="" alt="Image" class="img-preview img-fluid mb-3" style="max-width: 300px; display: none;">
-</div>
-            <input type="file" class="form-control" id="foto_barang" name="foto_barang" onchange="previewImage()">
+            <label for="gambar">Foto Barang</label>
+            <div class="d-flex justify-content-center align-items-center">
+                <img src="" alt="Image" class="img-preview img-fluid mb-3" style="max-width: 300px; display: none;">
+            </div>
+            <input type="file" class="form-control" id="gambar" name="gambar" onchange="previewImage()">
      
         </div>
         <br>
@@ -64,7 +67,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const productData = localStorage.getItem("editProduct");
 
-    console.log(localStorage.getItem('access_token'));
     // Pastikan data ada dan dapat di-parse
     if (productData) {
         const product = JSON.parse(productData);
@@ -76,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Isi form dengan data produk
             document.getElementById("nama_produk").value = productData.nama_produk;
-            document.getElementById("kategori").value = productData.kategori;
+            document.getElementById("kategori").value = productData.kategori;  // Menetapkan kategori yang ada
             document.getElementById("deskripsi").value = productData.deskripsi;
             document.getElementById("harga").value = productData.harga;
             document.getElementById("diskon").value = productData.diskon;
@@ -93,9 +95,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-
 function previewImage() {
-    const file = document.getElementById("foto_barang").files[0];
+    const file = document.getElementById("gambar").files[0];
     const reader = new FileReader();
 
     reader.onloadend = function () {
@@ -108,11 +109,9 @@ function previewImage() {
         reader.readAsDataURL(file);
     }
 }
-    console.log(JSON.parse(localStorage.getItem("editProduct")));
 
+console.log(JSON.parse(localStorage.getItem("editProduct")));
 </script>
- 
-
 
 <script>
     document.querySelector("form").addEventListener("submit", async function (e) {
@@ -150,9 +149,13 @@ function previewImage() {
             console.log(key, value);  // Debug: tampilkan data yang terkandung di formData
         }
 
+        // Menambahkan _method=PUT ke URL
+        const url = new URL(`http://127.0.0.1:8000/api/products/${productId}`);
+        url.searchParams.append('_method', 'PUT');  // Menambahkan parameter _method
+
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/products/${productId}`, {
-                method: "PUT",  // Menggunakan metode PUT untuk memperbarui produk
+            const response = await fetch(url, {
+                method: "POST",  // Gunakan POST, karena backend menerima _method=PUT melalui POST
                 headers: {
                     "Authorization": `Bearer ${token}`,  // Menambahkan token dalam header Authorization
                 },
@@ -161,12 +164,13 @@ function previewImage() {
 
             // Cek apakah response berhasil
             if (!response.ok) {
-                const errorData = await response.json();
-                console.error("Error:", errorData);
-                alert("Gagal mengupdate produk: " + (errorData.message || "Unknown error"));
+                const errorText = await response.text();  // Ambil respons sebagai teks
+                console.error("Error:", errorText);
+                alert("Gagal mengupdate produk: " + (errorText || "Unknown error"));
                 return;
             }
 
+            // Jika respons adalah JSON, kita bisa mengurai respons tersebut
             const responseData = await response.json();
             console.log("Sukses:", responseData);
             alert("Produk berhasil diperbarui.");
@@ -179,7 +183,6 @@ function previewImage() {
         }
     });
 </script>
-
 
 <script>
     window.addEventListener('beforeunload', () => {
