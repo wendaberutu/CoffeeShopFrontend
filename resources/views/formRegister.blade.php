@@ -25,11 +25,10 @@
                 <div class="form-container col-12 col-md-10 col-lg-8">
                     <div class="text-center mb-4">
                         <div class="logo-container">
-            <div class="logo">
-                <img src="{{ asset('images/logo.png') }}" alt="CWD Coffee">
-            </div>
-             
-        </div>
+                            <div class="logo">
+                                <img src="{{ asset('images/logo.png') }}" alt="CWD Coffee">
+                            </div>
+                        </div>
                     </div>
                     <h3 class="text-center mb-4">Input Data User</h3>
                     <form id="userForm">
@@ -70,5 +69,50 @@
 
     <!-- Link Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript to Handle Form Submission -->
+    <script>
+        // Fungsi untuk submit form
+document.getElementById("userForm").addEventListener("submit", async (event) => {
+    event.preventDefault(); // Mencegah form melakukan submit default
+    
+    // Ambil form dan data form
+    const form = document.getElementById("userForm");
+    const formData = new FormData(form);
+    
+    // Ambil token (misalnya token autentikasi jika dibutuhkan)
+    const token = localStorage.getItem("access_token");
+    const serverBackend = "http://127.0.0.1:8000";  // Ganti dengan URL backend Anda
+    
+    try {
+        // Kirim permintaan POST dengan form data
+        const response = await fetch(`${serverBackend}/register`, {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${token}`, // Jika perlu mengirimkan token
+                // Jika tidak perlu, header ini bisa dihapus
+            },
+            body: formData, // Mengirim form data
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || "Terjadi kesalahan saat mengirim data.");
+        }
+
+        const result = await response.json();
+        alert("Data berhasil disimpan!");
+        console.log(result);
+
+        // Jika registrasi berhasil, Anda bisa mengarahkan ke halaman lain
+        window.location.href = "/login"; // Ganti dengan URL tujuan Anda setelah sukses
+
+    } catch (error) {
+        console.error("Error:", error.message);
+        alert("Gagal mengirim data: " + error.message);
+    }
+});
+
+    </script>
 </body>
 </html>
