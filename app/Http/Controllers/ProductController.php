@@ -31,5 +31,13 @@ class ProductController extends Controller
     }
 
 
+    public function edit()
+    {
+        return view('admin.edit');
+    }
+    // public function tambah()
+    // {
+    //     return view('admin.tambah');
+    // }
 
 }

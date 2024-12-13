@@ -2,26 +2,42 @@
 
 body {
     margin: 0;
-    /* display: flex; */
-    min-height: 100vh; /* Pastikan sidebar dan konten menyesuaikan tinggi viewport */
+    /* display: flex; Gunakan flex untuk membuat layout sidebar dan konten */
+    min-height: 100vh; /* Pastikan sidebar dan konten setinggi viewport */
+    overflow-x: hidden; /* Hindari scroll horizontal */
 }
 
 .sidebar {
     width: 250px;
     background-color: #343a40; /* Warna sidebar */
     color: white;
-    position: relative; /* Penting untuk posisi absolute tombol logout */
+    position: fixed; /* Tetapkan sidebar agar tetap di posisi kiri */
+    top: 0; /* Mulai dari atas viewport */
+    left: 0; /* Tetap di sisi kiri */
+    bottom: 0; /* Isi tinggi viewport */
+    overflow-y: auto; /* Jika sidebar memiliki konten panjang, tambahkan scroll */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .user-info {
-    margin-top: auto;
+    margin-top: auto; /* Untuk menempatkan elemen user-info di bagian bawah */
 }
 
+ 
+
 .main {
-    flex-grow: 1;
+    flex-grow: 1; /* Membuat elemen ini fleksibel */
+    margin-left: 250px; /* Mengimbangi lebar sidebar */
     background: linear-gradient(135deg, #f8f9fa, #e9ecef); /* Background gradient */
-    padding: 30px;
+    background-size: cover; /* Background mengisi penuh elemen */
+    background-repeat: no-repeat; /* Hindari pengulangan */
+    background-attachment: fixed; /* Membuat background tetap saat scroll */
+    padding: 30px; /* Padding untuk konten */
+    min-height: 100vh; /* Pastikan tinggi elemen setara dengan tinggi viewport */
+    box-sizing: border-box; /* Padding tidak memengaruhi lebar total */
 }
+
 
 .content-card {
     background: white;

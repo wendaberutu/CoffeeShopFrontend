@@ -23,17 +23,40 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/admin/products', [ProductController::class, 'index']);
+ 
 
 
-Route::get('admin/products', [ProductController::class, 'index']);
 
-Route::get('/admin/products/tambah', function () {
+// Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+Route::get('admin/products/{id}', [ProductController::class, 'edit']);
+
+
+//rute ini error
+// Route::get('/admin/products/tambah', function () {
+//     return view('admin.tambah');
+// })->name('product.product');
+
+Route::get('/admin/tambah', function () {
     return view('admin.tambah');
 })->name('tambah.product');
 
+Route::get('/admin/broadcast', function () {
+    return view('admin.broadcast');
+})->name('admin.broadcast');
+
+// Route::get('admin/products/tambah', [ProductController::class, 'tambah'])->name('tambah.product');;
+// Route::get('/admin/edit', [ProductController::class, 'edit'])->name('admin.edit');
+
+
+// Route::get('/user/home', [ProductController::class, 'edit'])->name('admin.edit');
+
+
+
 Route::get('/otp/request', function () {
-    return view('requestOtp');  
+    return view('requestOtp');
 })->name('otp.request');
 
 Route::get('/register', function () {
@@ -42,35 +65,35 @@ Route::get('/register', function () {
 
 
 Route::post('/otp/request', [OtpController::class, 'requestOTP'])->name('otp.request');
-Route::get( '/otp/verify', [OtpController::class, 'otpVerify'])->name('otp.verify');
-Route::get('/register', [OtpController::class, 'getRegister'])->name('register');
+Route::get('/otp/verify', [OtpController::class, 'otpVerify'])->name('otp.verify');
 Route::post('/otp/verify', [OtpController::class, 'postVerify'])->name('post.verify');
+// Route::get('/register', [OtpController::class, 'getRegister'])->name('register');
 
 
 
 
+//Ga dipakai
+// Route::prefix('admin')->group(function () {
+//     Route::get('broadcast', function () {
+//         return view('admin.broadcast');
+//     })->name('admin.broadcast');
 
-Route::prefix('admin')->group(function () {
-    Route::get('broadcast', function () {
-        return view('admin.broadcast');
-    })->name('admin.broadcast');
+//     Route::get('menu', function () {
+//         return view('admin.menu');
+//     })->name('admin.menu');
 
-    Route::get('menu', function () {
-        return view('admin.menu');
-    })->name('admin.menu');
+//     Route::get('tambah-menu', function () {
+//         return view('admin.tambah');
+//     })->name('admin.tambah.menu');
 
-    Route::get('tambah-menu', function () {
-        return view('admin.tambah');
-    })->name('admin.tambah.menu');
+//     Route::get('edit-menu', function () {
+//         return view('admin.edit');
+//     })->name('admin.edit.menu');
 
-    Route::get('edit-menu', function () {
-        return view('admin.edit');
-    })->name('admin.edit.menu');
-
-    Route::get('cek', function () {
-        return view('admin.cek');  // Admin page
-    })->name('admin.cek');
-});
+//     Route::get('cek', function () {
+//         return view('admin.cek');  // Admin page
+//     })->name('admin.cek');
+// });
 
 
 
@@ -83,4 +106,3 @@ Route::prefix('user')->group(function () {
         return view('user.dashboard');
     })->name('user.dashboard');
 });
- 

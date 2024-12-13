@@ -21,7 +21,9 @@ const login = async (phone_number, password) => {
             console.log("Login successful", data);
             // Simpan token di localStorage
             localStorage.setItem("access_token", data.data.access_token);
+            localStorage.setItem("user", JSON.stringify(data.data.user));
             console.log(localStorage.getItem("access_token"));
+            console.log(localStorage.getItem("user"));
 
             // Cek role dan redirect berdasarkan role
             const userRole = data.data.user.role;
