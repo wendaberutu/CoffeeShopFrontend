@@ -25,6 +25,8 @@ Route::get('/login', function () {
 
 Route::get('/admin/products', [ProductController::class, 'index']);
 
+
+
 // Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
@@ -52,13 +54,12 @@ Route::get('/register', function () {
 Route::post('/otp/request', [OtpController::class, 'requestOTP'])->name('otp.request');
 Route::get('/otp/verify', [OtpController::class, 'otpVerify'])->name('otp.verify');
 Route::post('/otp/verify', [OtpController::class, 'postVerify'])->name('post.verify');
- 
 
 
 Route::prefix('user')->group(function () {
-    Route::get('menu', function () {
-        return view('user.menu');
-    })->name('user.menu');
+    Route::get('product', function () {
+        return view('user.user-menu');
+    })->name('user.product');
 
     Route::get('dashboard', function () {
         return view('user.dashboard');
