@@ -5,5 +5,5 @@
 @endsection
 
 @section('container')
-Dashboard
+User Dashboard
 @endsection

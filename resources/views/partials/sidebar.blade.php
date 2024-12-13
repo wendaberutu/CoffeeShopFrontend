@@ -24,8 +24,8 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-white user-nav" style="display: none;" href="/user/user-menu">
-            <i class="fas fa-sticky-note"></i> Pesan
+        <a class="nav-link text-white user-nav" style="display: none;" href="/user/product">
+            <i class="fas fas fa-store"></i> Produk
         </a>
     </li>
 
