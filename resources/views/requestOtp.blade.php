@@ -40,42 +40,7 @@
     <!-- Link Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     
-    {{-- <script>
-        document.getElementById('otpRequestForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const nomor = document.getElementById('nomor').value;
-            
-            // Melakukan request OTP ke backend
-            fetch('http://127.0.0.1:8000/api/otp/request', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    nomor: nomor
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.message === 'OTP sent successfully') {
-                    alert('OTP berhasil dikirim');
-                    
-                    // Simpan nomor telepon di localStorage untuk halaman verifikasi
-                    localStorage.setItem('nomor_otp', nomor);
-
-                    // Redirect ke halaman verifikasi OTP
-                    window.location.href = '/otp/verify';
-                } else {
-                    alert('Gagal mengirim OTP: ' + (data.message || 'Error tidak diketahui'));
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Terjadi kesalahan dalam mengirim OTP');
-            });
-        });
-    </script> --}}
+   
 
 </body>
 </html>
