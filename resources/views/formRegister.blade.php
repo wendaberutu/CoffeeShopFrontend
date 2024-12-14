@@ -54,7 +54,9 @@
                         </div>
                         <div class="mb-3">
                             <label for="no_whatshap" class="form-label">Nomor WhatsApp</label>
-                            <input type="text" class="form-control" id="no_whatshap" name="no_whatshap" placeholder="Masukkan nomor WhatsApp" value="{{ session('nomor') ?? $nomor ?? '' }}" required>
+                            <input type="text" class="form-control" id="no_whatshap" name="no_whatshap" 
+                                   placeholder="Masukkan nomor WhatsApp" 
+                                   value="{{ session('nomor') ?? $nomor ?? '' }}" required readonly>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>

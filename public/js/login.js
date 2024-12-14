@@ -31,7 +31,7 @@ const login = async (phone_number, password) => {
             if (userRole === "admin") {
                 window.location.href = "/admin/products"; // Redirect ke halaman admin
             } else if (userRole === "user") {
-                window.location.href = "/user/dashboard"; // Redirect ke dashboard untuk user
+                window.location.href = "/user/product"; // Redirect ke dashboard untuk user
             }
         } else {
             console.error("Login failed", data.message);

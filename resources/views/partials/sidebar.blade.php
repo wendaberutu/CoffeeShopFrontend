@@ -18,11 +18,11 @@
 
 
     <!-- Dashboard for User -->
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link text-white user-nav" style="display: none;" href="/user/dashboard">
             <i class="fas fa-tachometer-alt"></i> Dashboard
         </a>
-    </li>
+    </li> --}}
     <li class="nav-item">
         <a class="nav-link text-white user-nav" style="display: none;" href="/user/product">
             <i class="fas fas fa-store"></i> Produk

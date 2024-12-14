@@ -61,7 +61,7 @@ Route::prefix('user')->group(function () {
         return view('user.user-menu');
     })->name('user.product');
 
-    Route::get('dashboard', function () {
-        return view('user.dashboard');
-    })->name('user.dashboard');
+   // Route::get('dashboard', function () {
+      //  return view('user.dashboard');
+    //})->name('user.dashboard');
 });
