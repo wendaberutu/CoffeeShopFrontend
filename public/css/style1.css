@@ -131,7 +131,7 @@ nav {
 .hero p {
     font-size: 1.2em;
     margin-bottom: 20px;
-    animation: fadeIn 2s ease-in-out 1s;
+    animation: fadeIn 2s ease-in-out 0.5s; /* Delay untuk memberi jarak waktu antar animasi */
 }
 
 .coffee-cup {
@@ -142,7 +142,7 @@ nav {
     object-fit: cover; /* Memastikan gambar tidak terdistorsi */
     border: 5px solid #fff; /* Tambahkan border putih agar lebih estetis */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efek bayangan agar lebih menarik */
-    animation: fadeIn 2s ease-in-out 1.5s;
+    animation: fadeIn 2s ease-in-out 1s; /* Delay tambahan agar gambar muncul setelah teks */
 }
 
 /* Animasi FadeIn */

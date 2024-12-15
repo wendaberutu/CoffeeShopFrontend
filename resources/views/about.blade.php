@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,18 +27,20 @@
     <!-- Hero Section -->
     <div class="hero">
         <div class="content-box">
-            <h1>Selamat Datang di CWD Coffee!</h1>
-            <p>Di CWD Coffee, kami tidak hanya menyajikan kopi, tetapi juga pengalaman yang memanjakan indera Anda. Dari biji kopi terbaik yang dipilih dengan cermat hingga penyajian yang penuh perhatian, kami berkomitmen untuk memberikan rasa yang tak terlupakan dalam setiap tegukan.</p>
+            <h1>CWD Coffee!</h1>
+            <p>Selamat datang di CWD Coffee, tempat di mana setiap cangkir kopi menyajikan lebih dari sekadar rasa, tetapi sebuah pengalaman. Di sini, kami tidak hanya menyajikan kopi, melainkan juga menyajikan kisah yang penuh kehangatan dan kelezatan. Dari biji kopi pilihan terbaik yang dipilih dengan seksama hingga proses penyajian yang penuh perhatian, setiap tegukan di CWD Coffee adalah perjalanan rasa yang tak terlupakan.</p>
 
+            <h1>Kenapa Memilih CWD Coffee?</h1>
+            <p>Di CWD Coffee, kami percaya bahwa setiap cangkir kopi adalah cerita yang dimulai dengan pemilihan biji kopi berkualitas tinggi, yang diproses dengan teknik yang terampil, dan disajikan dengan penuh kasih sayang. Kami berkomitmen untuk memberikan pengalaman yang berbeda dengan setiap tegukan. Kami juga menyadari pentingnya suasana yang nyaman, sehingga Anda bisa menikmati kopi sambil bersantai, bekerja, atau berkumpul dengan teman-teman. Di CWD Coffee, setiap kunjungan adalah momen berharga yang ingin kami bagi dengan Anda.</p>
 
-            <h1>Kenapa Memilih Kami?</h1>
-            <p>Kami percaya bahwa setiap cangkir kopi adalah cerita. Sebuah cerita yang dimulai dengan bahan baku berkualitas tinggi, diproses dengan teknik yang penuh seni, dan disajikan dengan kasih sayang. Di CWD Coffee, setiap kopi yang kami buat adalah dedikasi kami untuk memberikan kenyamanan dan kehangatan di setiap kunjungan Anda.</p>
-            <p>Tidak hanya itu, suasana nyaman dan pelayanan yang ramah juga kami jaga agar Anda merasa betah dan ingin kembali. Apakah Anda mencari tempat untuk bersantai, bekerja, atau bertemu teman, CWD Coffee adalah pilihan yang tepat.</p>
+            <p>Lebih dari sekedar tempat untuk minum kopi, kami menciptakan atmosfer yang nyaman dan ramah agar Anda merasa seperti di rumah sendiri. Kami ingin Anda merasa betah untuk berlama-lama, baik untuk menikmati secangkir kopi yang nikmat atau hanya sekedar menghabiskan waktu bersama orang-orang terdekat. Dengan pelayanan yang penuh perhatian, kami berusaha untuk memberikan pengalaman terbaik setiap kali Anda berkunjung.</p>
 
+            <h1>Rasakan Kenikmatan Setiap Momen di CWD Coffee</h1>
+            <p>Apakah Anda pencinta kopi klasik atau lebih suka varian kopi kekinian? Di CWD Coffee, kami menyajikan beragam jenis kopi untuk memenuhi selera Anda. Dari kopi hitam yang pekat hingga cappuccino dengan busa susu lembut, setiap kopi yang kami sajikan memiliki cita rasa yang kaya dan tak terlupakan. Ditambah dengan makanan ringan yang menggugah selera, seperti pastry segar dan camilan ringan, setiap kunjungan Anda akan menjadi pengalaman kuliner yang memuaskan.</p>
 
-            <h1>Menikmati Setiap Momen Bersama Kami</h1>
-            <p>Kami menyajikan berbagai jenis kopi, dari yang klasik hingga varian kekinian, cocok untuk setiap selera. Ditambah dengan makanan ringan yang menggugah selera, CWD Coffee akan membuat setiap momen Anda semakin istimewa.</p>
-            <p>Ayo, nikmati kopi terbaik hanya di CWD Coffee. Segera kunjungi kami dan rasakan sendiri kenikmatan yang tiada duanya!</p>
+            <p>Selain kopi, kami juga menyediakan berbagai pilihan minuman lainnya yang menyegarkan, serta hidangan yang cocok untuk menemani waktu santai Anda. Jadi, apakah Anda sedang mencari tempat untuk bekerja dengan tenang atau hanya ingin menikmati waktu bersama teman-teman, CWD Coffee adalah pilihan yang sempurna.</p>
+
+            <p>Segera kunjungi kami dan nikmati kopi terbaik yang hanya bisa Anda temukan di CWD Coffee. Kami yakin, setelah mencoba, Anda akan selalu kembali untuk menikmati setiap momen berharga bersama kami. Kami menantikan kedatangan Anda di CWD Coffee, tempat di mana setiap cangkir kopi membawa kebahagiaan.</p>
         </div>
     </div>
 
