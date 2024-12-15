@@ -29,13 +29,14 @@ body {
 .main {
     flex-grow: 1; /* Membuat elemen ini fleksibel */
     margin-left: 250px; /* Mengimbangi lebar sidebar */
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef); /* Background gradient */
+    background: url('/images/coffee-background.jpg'); /* Background gradient */
     background-size: cover; /* Background mengisi penuh elemen */
     background-repeat: no-repeat; /* Hindari pengulangan */
     background-attachment: fixed; /* Membuat background tetap saat scroll */
     padding: 30px; /* Padding untuk konten */
     min-height: 100vh; /* Pastikan tinggi elemen setara dengan tinggi viewport */
     box-sizing: border-box; /* Padding tidak memengaruhi lebar total */
+    /* opacity: 0.8; Background transparan */
 }
 
 

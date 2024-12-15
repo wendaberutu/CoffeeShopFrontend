@@ -5,7 +5,7 @@
 @endsection
 
 @section('container')
-<a href="{{ route('tambah.product') }}" class="btn btn-primary">
+<a href="{{ route('tambah.product') }}" class="btn btn-secondary">
     <i class="fas fa-plus"></i> Tambah
 </a>
 
