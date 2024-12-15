@@ -19,6 +19,15 @@ use App\Http\Controllers\ProductController;
 Route::get('/', function () {
     return view('home');
 })->name('home');
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
 Route::get('/login', function () {
     return view('login');
 })->name('login');
